@@ -1,0 +1,12 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "bombastic:item/pipe_bomb"
+  },
+  "overrides": [
+    {
+      "predicate": { "pipe_bomb_lit": 1 },
+      "model": "bombastic:item/pipe_bomb_lit"
+    }
+  ]
+}

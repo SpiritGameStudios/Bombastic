@@ -1,0 +1,10 @@
+{
+  "clown_boots": {
+    "subtitle": "subtitles.bombastic.clown_boots",
+    "sounds": [ "bombastic:clown_boots" ]
+  },
+  "parry": {
+    "subtitle": "subtitles.bombastic.parry",
+    "sounds": [ "minecraft:random/anvil_land" ]
+  }
+}

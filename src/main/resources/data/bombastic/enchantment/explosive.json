@@ -1,0 +1,76 @@
+{
+  "anvil_cost": 3,
+  "description": {
+    "translate": "enchantment.bombastic.explosive"
+  },
+
+  "effects": {
+    "minecraft:post_attack": [
+      {
+        "enchanted": "attacker",
+        "affected": "victim",
+        "effect": {
+          "type": "minecraft:explode",
+          "damage_type": "minecraft:arrow",
+          "radius": {
+            "type": "minecraft:linear",
+            "base": 1.0,
+            "per_level_above_first": 1.5
+          },
+          "block_interaction": "mob",
+          "small_particle": { "type": "minecraft:ash" },
+          "large_particle": { "type": "minecraft:explosion_emitter" },
+          "sound": "minecraft:entity.generic.explode"
+        }
+      }
+    ],
+    "minecraft:hit_block": [
+      {
+        "effect": {
+          "type": "minecraft:all_of",
+          "effects": [
+            {
+              "type": "minecraft:run_function",
+              "function": "bombastic:kill_self"
+            },
+            {
+              "type": "minecraft:explode",
+              "damage_type": "minecraft:arrow",
+              "radius": {
+                "type": "minecraft:linear",
+                "base": 1.0,
+                "per_level_above_first": 1.5
+              },
+              "block_interaction": "mob",
+              "small_particle": { "type": "minecraft:ash" },
+              "large_particle": { "type": "minecraft:explosion_emitter" },
+              "sound": "minecraft:entity.generic.explode",
+              "knockback_multiplier": 2.0
+            }
+          ]
+        },
+        "requirements": {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": { "type": "#minecraft:arrows" }
+        }
+      }
+    ]
+  },
+
+  "exclusive_set": "#bombastic:explosive",
+  "max_cost": {
+    "base": 50,
+    "per_level_above_first": 5
+  },
+  "max_level": 3,
+  "min_cost": {
+    "base": 40,
+    "per_level_above_first": 5
+  },
+  "slots": [
+    "mainhand"
+  ],
+  "supported_items": "#minecraft:enchantable/crossbow",
+  "weight": 2
+}

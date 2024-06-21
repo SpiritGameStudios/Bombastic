@@ -1,0 +1,35 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#SR",
+        "ZIZ",
+        "YSB"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:lime_wool"
+        },
+        "S": {
+            "item": "minecraft:slime_ball"
+        },
+        "R": {
+            "item": "minecraft:red_wool"
+        },
+        "Z": {
+            "item": "minecraft:string"
+        },
+        "I": {
+            "item": "minecraft:iron_block"
+        },
+        "Y": {
+            "item": "minecraft:yellow_wool"
+        },
+        "B": {
+            "item": "minecraft:blue_wool"
+        }
+    },
+    "result": {
+        "id": "bombastic:juggling_ball",
+        "count": 1
+    }
+}

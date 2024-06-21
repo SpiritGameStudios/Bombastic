@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "bombastic:block/firecracker",
+    "down": "bombastic:block/firecracker",
+    "up": "bombastic:block/firecracker",
+    "north": "bombastic:block/firecracker",
+    "east": "bombastic:block/firecracker_side",
+    "south": "bombastic:block/firecracker",
+    "west": "bombastic:block/firecracker_side"
+  }
+}

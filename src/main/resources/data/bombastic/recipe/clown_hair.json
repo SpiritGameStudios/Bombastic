@@ -1,0 +1,31 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#YP",
+        "RLN"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:orange_wool"
+        },
+        "Y": {
+            "item": "minecraft:yellow_wool"
+        },
+        "P": {
+            "item": "minecraft:purple_wool"
+        },
+        "R": {
+            "item": "minecraft:red_wool"
+        },
+        "L": {
+            "item": "minecraft:lime_wool"
+        },
+        "N": {
+            "item": "minecraft:light_blue_wool"
+        }
+    },
+    "result": {
+        "id": "bombastic:clown_hair",
+        "count": 1
+    }
+}

@@ -1,0 +1,22 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_21",
+  "package": "dev.callmeecho.bombastic.mixin",
+  "mixins": [
+    "EntityMixin",
+    "ItemMixin",
+    "PlayerEntityMixin",
+    "ServerPlayerEntityMixin"
+  ],
+  "client": [
+    "GameRendererMixin",
+    "MouseMixin",
+    "ProjectileEntityMixin"
+  ],
+  "server": [],
+  "plugin": "dev.callmeecho.cabinetapi.util.ConditionalMixinPlugin",
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

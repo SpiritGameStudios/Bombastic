@@ -1,0 +1,7 @@
+accessWidener v2 named
+
+accessible method net/minecraft/entity/projectile/FireworkRocketEntity explodeAndRemove ()V
+accessible method net/minecraft/entity/projectile/thrown/PotionEntity onCollision (Lnet/minecraft/util/hit/HitResult;)V
+accessible method net/minecraft/entity/projectile/PersistentProjectileEntity clearPiercingStatus ()V
+accessible method net/minecraft/enchantment/EnchantmentHelper forEachEnchantment (Lnet/minecraft/item/ItemStack;Lnet/minecraft/enchantment/EnchantmentHelper$Consumer;)V
+accessible class net/minecraft/enchantment/EnchantmentHelper$Consumer

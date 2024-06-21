@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "bombastic",
+  "version": "${version}",
+  "name": "Bombastic",
+  "description": "Sending you pipe bombs since 2024",
+  "authors": ["CallMeEcho", "WorldWidePixel"],
+  "contact": {
+    "homepage": "https://github.com/CallMeEchoCodes/Bombastic",
+    "sources": "https://github.com/CallMeEchoCodes/Bombastic",
+    "issues": "https://github.com/CallMeEchoCodes/Bombastic/issues"
+  },
+  "license": "MPL-2.0",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["dev.callmeecho.bombastic.main.Bombastic"],
+    "client": ["dev.callmeecho.bombastic.client.BombasticClient"]
+  },
+  "mixins": ["bombastic.mixins.json"],
+  "icon": "assets/bombastic/icon.png",
+  "accessWidener": "bombastic.accesswidener",
+  "depends": {
+    "fabricloader": ">=0.15.11",
+    "minecraft": "1.21",
+    "java": ">=21",
+    "fabric-api": "*",
+    "cabinetapi": "*"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/TTmx7d2axf"
+      }
+    }
+  }
+}

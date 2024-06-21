@@ -1,0 +1,24 @@
+{
+  "itemGroup.bombastic.group": "Bombastic",
+
+  "item.bombastic.clown_boots": "Clown Boots",
+  "item.bombastic.clown_hair": "Clown Hair",
+  "item.bombastic.pipe_bomb": "Pipe Bomb",
+  "item.bombastic.party_popper": "Party Popper",
+  "item.bombastic.juggling_ball": "Juggling Ball",
+
+  "block.bombastic.confetti_cannon": "Confetti Cannon",
+  "block.bombastic.firecracker": "Firecracker",
+
+  "subtitles.bombastic.clown_boots": "Clown Boots spring",
+  "subtitles.bombastic.parry": "Projectile parried",
+
+  "enchantment.bombastic.explosive": "Explosive",
+  "enchantment.bombastic.wind_shot": "Wind Shot",
+  "enchantment.bombastic.party_bomb": "Party Bomb",
+  "enchantment.bombastic.bouncy": "Bouncy",
+  "enchantment.bombastic.ballistic": "Ballistic",
+
+  "entity.bombastic.juggling_ball": "Juggling Ball",
+  "entity.bombastic.pipe_bomb": "Pipe Bomb"
+}

@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "iGi",
+        "CRC",
+        "CTC"
+    ],
+    "key": {
+        "i": {
+            "item": "minecraft:iron_ingot"
+        },
+        "G": {
+            "item": "minecraft:gunpowder"
+        },
+        "C": {
+            "item": "minecraft:cobbled_deepslate"
+        },
+        "R": {
+            "item": "minecraft:redstone"
+        },
+        "T": {
+            "item": "minecraft:redstone_lamp"
+        }
+    },
+    "result": {
+        "id": "bombastic:confetti_cannon",
+        "count": 1
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "# #",
+        "S S",
+        "i i"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:red_wool"
+        },
+        "S": {
+            "item": "minecraft:slime_ball"
+        },
+        "i": {
+            "item": "minecraft:iron_ingot"
+        }
+    },
+    "result": {
+        "id": "bombastic:clown_boots",
+        "count": 1
+    }
+}

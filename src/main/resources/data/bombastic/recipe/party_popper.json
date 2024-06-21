@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " # ",
+        "PGP",
+        " S "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:yellow_dye"
+        },
+        "P": {
+            "item": "minecraft:paper"
+        },
+        "G": {
+            "item": "minecraft:gunpowder"
+        },
+        "S": {
+            "item": "minecraft:string"
+        }
+    },
+    "result": {
+        "id": "bombastic:party_popper",
+        "count": 1
+    }
+}
