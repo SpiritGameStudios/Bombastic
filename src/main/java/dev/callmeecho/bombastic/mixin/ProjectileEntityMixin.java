@@ -41,6 +41,8 @@ public abstract class ProjectileEntityMixin extends Entity {
                 1.0F,
                 2.0F
         );
-        BombasticClient.freezeFrames = 5;
+
+        if (player == owner)
+            BombasticClient.freezeFrames = 5;
     }
 }
