@@ -10,7 +10,6 @@ import net.minecraft.registry.Registry;
 public class BombasticParticleRegistrar implements Registrar<ParticleType<?>> {
     public static final SimpleParticleType CONFETTI = FabricParticleTypes.simple();
     public static final SimpleParticleType FIRECRACKER_FLASH = FabricParticleTypes.simple();
-    public static final SimpleParticleType TRAIL = FabricParticleTypes.simple();
 
     public static final SimpleParticleType NULL = FabricParticleTypes.simple();
 

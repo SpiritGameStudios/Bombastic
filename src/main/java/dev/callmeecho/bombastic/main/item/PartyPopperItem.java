@@ -1,7 +1,8 @@
 package dev.callmeecho.bombastic.main.item;
 
-import dev.callmeecho.bombastic.main.registry.BombasticEnchantmentComponentTypeRegistry;
+import dev.callmeecho.bombastic.main.registry.BombasticEnchantmentComponentTypeRegistrar;
 import dev.callmeecho.bombastic.main.registry.BombasticParticleRegistrar;
+import dev.callmeecho.bombastic.main.registry.BombasticSoundEventRegistrar;
 import dev.callmeecho.bombastic.main.utils.ChangingExplosionBehavior;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EquipmentSlot;
@@ -58,6 +59,9 @@ public class PartyPopperItem extends Item {
                         BombasticParticleRegistrar.CONFETTI,
                         Registries.SOUND_EVENT.getEntry(SoundEvents.INTENTIONALLY_EMPTY)
                 );
+
+        world.syncWorldEvent(WorldEvents.SMASH_ATTACK, playerEntity.getSteppingPos(), 750);
+        playerEntity.setIgnoreFallDamageFromCurrentExplosion(true);
     }
 
     @Override
@@ -91,7 +95,7 @@ public class PartyPopperItem extends Item {
                 playerEntity.getX(),
                 playerEntity.getY(),
                 playerEntity.getZ(),
-                SoundEvents.ENTITY_FIREWORK_ROCKET_LAUNCH,
+                BombasticSoundEventRegistrar.PARTY_POPPER,
                 playerEntity.getSoundCategory(),
                 1.0F,
                 1.0F
@@ -104,7 +108,7 @@ public class PartyPopperItem extends Item {
         EnchantmentHelper.forEachEnchantment(
                 stack,
                 (enchantment, level) -> enchantment.value().modifyValue(
-                        BombasticEnchantmentComponentTypeRegistry.PARTY_POPPER_EXPLOSION,
+                        BombasticEnchantmentComponentTypeRegistrar.PARTY_POPPER_EXPLOSION,
                         random,
                         level,
                         power
@@ -113,9 +117,6 @@ public class PartyPopperItem extends Item {
 
         if (power.floatValue() > 0.0F)
             explode(world, playerEntity, power.floatValue());
-
-        world.syncWorldEvent(WorldEvents.SMASH_ATTACK, playerEntity.getSteppingPos(), 750);
-        playerEntity.setIgnoreFallDamageFromCurrentExplosion(true);
 
         playerEntity.getItemCooldownManager().set(this, 20);
         stack.damage(1, playerEntity, EquipmentSlot.MAINHAND);

@@ -1,7 +1,7 @@
 package dev.callmeecho.bombastic.main.particle;
 
 import dev.callmeecho.bombastic.main.Bombastic;
-import dev.callmeecho.bombastic.main.utils.Easing;
+import dev.callmeecho.cabinetapi.util.Easing;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.particle.*;
@@ -80,9 +80,7 @@ public class ConfettiParticle extends SpriteBillboardParticle {
 
     @Override
     public float getSize(float tickDelta) {
-        return scale - Easing.QUINT_IN.apply(
-                Math.min((float) this.age + tickDelta, this.maxAge),
-                0, scale, maxAge);
+        return (float) Easing.QUINT.in(Math.min(age + tickDelta, getMaxAge()), scale, 0, getMaxAge());
     }
 
     Quaternionf getRotation(Camera camera, float tickDelta) {

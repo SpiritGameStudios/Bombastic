@@ -36,7 +36,7 @@ public class Bombastic implements ModInitializer {
         RegistrarHandler.process(BombasticParticleRegistrar.class, MODID);
         RegistrarHandler.process(BombasticBlockRegistrar.class, MODID);
         RegistrarHandler.process(BombasticBlockEntityRegistrar.class, MODID);
-        RegistrarHandler.process(BombasticEnchantmentComponentTypeRegistry.class, MODID);
+        RegistrarHandler.process(BombasticEnchantmentComponentTypeRegistrar.class, MODID);
 
         Registry.register(
                 Registries.RECIPE_SERIALIZER,

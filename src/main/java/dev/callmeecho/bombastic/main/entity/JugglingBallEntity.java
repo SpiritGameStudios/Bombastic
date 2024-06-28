@@ -1,13 +1,9 @@
 package dev.callmeecho.bombastic.main.entity;
 
-import dev.callmeecho.bombastic.client.BombasticClient;
-import dev.callmeecho.bombastic.main.registry.BombasticEnchantmentComponentTypeRegistry;
+import dev.callmeecho.bombastic.main.registry.BombasticEnchantmentComponentTypeRegistrar;
 import dev.callmeecho.bombastic.main.registry.BombasticEntityTypeRegistrar;
 import dev.callmeecho.bombastic.main.registry.BombasticItemRegistrar;
-import dev.callmeecho.bombastic.main.registry.BombasticSoundEventRegistrar;
 import net.minecraft.block.BlockState;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.*;
 import net.minecraft.entity.data.DataTracker;
@@ -16,14 +12,12 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
-import net.minecraft.entity.projectile.thrown.ThrownEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
@@ -31,8 +25,6 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 import org.apache.commons.lang3.mutable.MutableFloat;
-import org.apache.commons.lang3.mutable.MutableInt;
-import org.jetbrains.annotations.Nullable;
 
 public class JugglingBallEntity extends PersistentProjectileEntity implements FlyingItemEntity {
     private static final TrackedData<Boolean> RETURNING = DataTracker.registerData(JugglingBallEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
@@ -63,7 +55,7 @@ public class JugglingBallEntity extends PersistentProjectileEntity implements Fl
         EnchantmentHelper.forEachEnchantment(
                 stack,
                 (enchantment, level) -> enchantment.value().modifyValue(
-                        BombasticEnchantmentComponentTypeRegistry.JUGGLING_BALL_BOUNCE,
+                        BombasticEnchantmentComponentTypeRegistrar.JUGGLING_BALL_BOUNCE,
                         player.getRandom(),
                         level,
                         bounces

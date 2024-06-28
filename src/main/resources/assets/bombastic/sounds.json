@@ -3,6 +3,14 @@
     "subtitle": "subtitles.bombastic.clown_boots",
     "sounds": [ "bombastic:clown_boots" ]
   },
+  "party_popper": {
+    "subtitle": "subtitles.bombastic.party_popper",
+    "sounds": [ "minecraft:fireworks/launch1" ]
+  },
+  "juggling_ball": {
+    "subtitle": "subtitles.bombastic.juggling_ball",
+    "sounds": [ "minecraft:random/bow" ]
+  },
   "parry": {
     "subtitle": "subtitles.bombastic.parry",
     "sounds": [ "minecraft:random/anvil_land" ]

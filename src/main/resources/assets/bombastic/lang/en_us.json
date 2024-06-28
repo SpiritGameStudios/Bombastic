@@ -11,7 +11,9 @@
   "block.bombastic.firecracker": "Firecracker",
 
   "subtitles.bombastic.clown_boots": "Clown Boots spring",
-  "subtitles.bombastic.parry": "Projectile parried",
+  "subtitles.bombastic.parry": "Projectile clangs",
+  "subtitles.bombastic.party_popper": "Party Popper pops",
+  "subtitles.bombastic.juggling_ball": "Juggling Ball flies",
 
   "enchantment.bombastic.explosive": "Explosive",
   "enchantment.bombastic.wind_shot": "Wind Shot",

@@ -1,7 +1,7 @@
 package dev.callmeecho.bombastic.main.particle;
 
 import dev.callmeecho.bombastic.main.Bombastic;
-import dev.callmeecho.bombastic.main.utils.Easing;
+import dev.callmeecho.cabinetapi.util.Easing;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.particle.*;
@@ -27,6 +27,8 @@ public class FirecrackerFlashParticle extends SpriteBillboardParticle {
         this.velocityX = 0.0F;
         this.velocityY = 0.0F;
         this.velocityZ = 0.0F;
+
+        this.scale = 2.0F;
         this.maxAge = 4;
     }
 
@@ -55,12 +57,7 @@ public class FirecrackerFlashParticle extends SpriteBillboardParticle {
 
     @Override
     public float getSize(float tickDelta) {
-        return (float)
-                (2.0F * Math.sin(
-                        Math.min(
-                                (float) this.age + tickDelta,
-                                maxAge
-                        ) * (1.0F / getMaxAge()) * MathHelper.PI));
+        return (float) Easing.QUART.yoyoOutIn(Math.min(age + tickDelta, getMaxAge()), 0, scale, getMaxAge());
     }
 
     @Environment(EnvType.CLIENT)

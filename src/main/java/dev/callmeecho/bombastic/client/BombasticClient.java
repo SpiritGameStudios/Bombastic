@@ -9,7 +9,6 @@ import dev.callmeecho.bombastic.client.render.entity.model.ClownHairEntityModel;
 import dev.callmeecho.bombastic.client.render.entity.model.JugglingBallEntityModel;
 import dev.callmeecho.bombastic.main.particle.ConfettiParticle;
 import dev.callmeecho.bombastic.main.particle.FirecrackerFlashParticle;
-import dev.callmeecho.bombastic.main.particle.TrailParticle;
 import dev.callmeecho.bombastic.main.registry.*;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -19,10 +18,8 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
-import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 
@@ -50,7 +47,6 @@ public class BombasticClient implements ClientModInitializer {
 
         ParticleFactoryRegistry.getInstance().register(BombasticParticleRegistrar.CONFETTI, ConfettiParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(BombasticParticleRegistrar.FIRECRACKER_FLASH, FirecrackerFlashParticle.Factory::new);
-        ParticleFactoryRegistry.getInstance().register(BombasticParticleRegistrar.TRAIL, TrailParticle.Factory::new);
 
         BlockEntityRendererFactories.register(BombasticBlockEntityRegistrar.CONFETTI_CANNON, ConfettiCannonBlockEntityRenderer::new);
 

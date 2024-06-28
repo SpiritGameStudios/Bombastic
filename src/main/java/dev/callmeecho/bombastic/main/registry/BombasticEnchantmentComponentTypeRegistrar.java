@@ -6,7 +6,7 @@ import net.minecraft.enchantment.effect.EnchantmentValueEffect;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 
-public class BombasticEnchantmentComponentTypeRegistry implements Registrar<ComponentType<?>> {
+public class BombasticEnchantmentComponentTypeRegistrar implements Registrar<ComponentType<?>> {
     public static final ComponentType<EnchantmentValueEffect> JUGGLING_BALL_BOUNCE = ComponentType.<EnchantmentValueEffect>builder()
             .codec(EnchantmentValueEffect.CODEC)
             .build();
