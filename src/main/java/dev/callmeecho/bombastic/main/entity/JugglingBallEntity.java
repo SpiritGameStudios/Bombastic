@@ -118,6 +118,11 @@ public class JugglingBallEntity extends PersistentProjectileEntity implements Fl
     public boolean getEnchanted() { return this.dataTracker.get(ENCHANTED); }
 
     @Override
+    protected boolean canHit(Entity entity) {
+        return super.canHit(entity) && entity != this.getOwner() && !(entity instanceof JugglingBallEntity);
+    }
+
+    @Override
     public void tick() {
         HitResult hitResult = ProjectileUtil.getCollision(this, this::canHit);
         if (hitResult.getType() != HitResult.Type.MISS) this.hitOrDeflect(hitResult);

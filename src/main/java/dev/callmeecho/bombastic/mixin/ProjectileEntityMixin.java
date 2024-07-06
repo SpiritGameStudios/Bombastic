@@ -32,7 +32,7 @@ public abstract class ProjectileEntityMixin extends Entity {
 
     @Inject(method = "deflect", at = @At("HEAD"))
     private void deflect(ProjectileDeflection deflection, Entity deflector, Entity owner, boolean fromAttack, CallbackInfoReturnable<Boolean> cir) {
-        if (!this.getWorld().isClient || !this.getType().isIn(PARRIABLE_PROJECTILE) || this.getType() == deflector.getType()) return;
+        if (!this.getWorld().isClient || !this.getType().isIn(PARRIABLE_PROJECTILE)) return;
 
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         if (player == null) return;
