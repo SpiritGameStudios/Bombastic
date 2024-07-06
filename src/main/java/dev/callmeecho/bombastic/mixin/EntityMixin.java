@@ -1,5 +1,6 @@
 package dev.callmeecho.bombastic.mixin;
 
+import dev.callmeecho.bombastic.main.Bombastic;
 import dev.callmeecho.bombastic.main.RandomHelper;
 import dev.callmeecho.bombastic.main.registry.BombasticItemRegistrar;
 import dev.callmeecho.bombastic.main.registry.BombasticSoundEventRegistrar;
@@ -58,7 +59,11 @@ public abstract class EntityMixin {
         playerEntity.networkHandler.sendPacket(
                 new EntityVelocityUpdateS2CPacket(
                         playerEntity.getId(),
-                        playerEntity.getVelocity().multiply(7.5F, 0.0F, 7.5F)
+                        playerEntity.getVelocity().multiply(
+                                Bombastic.CONFIG.clownBootsMultiplier,
+                                0.0F,
+                                Bombastic.CONFIG.clownBootsMultiplier
+                        )
                 )
         );
 

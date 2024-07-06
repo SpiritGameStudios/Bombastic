@@ -7,9 +7,11 @@ import dev.callmeecho.bombastic.client.render.entity.JugglingBallEntityRenderer;
 import dev.callmeecho.bombastic.client.render.entity.model.ClownBootsEntityModel;
 import dev.callmeecho.bombastic.client.render.entity.model.ClownHairEntityModel;
 import dev.callmeecho.bombastic.client.render.entity.model.JugglingBallEntityModel;
+import dev.callmeecho.bombastic.main.BombasticConfig;
 import dev.callmeecho.bombastic.main.particle.ConfettiParticle;
 import dev.callmeecho.bombastic.main.particle.FirecrackerFlashParticle;
 import dev.callmeecho.bombastic.main.registry.*;
+import dev.callmeecho.cabinetapi.client.ModMenuHelper;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
@@ -22,6 +24,8 @@ import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
+
+import static dev.callmeecho.bombastic.main.Bombastic.MODID;
 
 public class BombasticClient implements ClientModInitializer {
     public static int freezeFrames = -1;
@@ -49,6 +53,8 @@ public class BombasticClient implements ClientModInitializer {
         ParticleFactoryRegistry.getInstance().register(BombasticParticleRegistrar.FIRECRACKER_FLASH, FirecrackerFlashParticle.Factory::new);
 
         BlockEntityRendererFactories.register(BombasticBlockEntityRegistrar.CONFETTI_CANNON, ConfettiCannonBlockEntityRenderer::new);
+
+        ModMenuHelper.addConfig(MODID, BombasticConfig.class);
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (freezeFrames > 0) {

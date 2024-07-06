@@ -1,6 +1,7 @@
 package dev.callmeecho.bombastic.main;
 
 import dev.callmeecho.bombastic.main.registry.*;
+import dev.callmeecho.cabinetapi.config.ConfigHandler;
 import dev.callmeecho.cabinetapi.item.CabinetItemGroup;
 import dev.callmeecho.cabinetapi.registry.RegistrarHandler;
 import net.fabricmc.api.ModInitializer;
@@ -26,6 +27,7 @@ public class Bombastic implements ModInitializer {
     );
 
     public static final SpecialRecipeSerializer<PipeBombRecipe> PIPE_BOMB_RECIPE = new SpecialRecipeSerializer<>(PipeBombRecipe::new);
+    public static final BombasticConfig CONFIG = ConfigHandler.getConfig(BombasticConfig.class);
 
     @Override
     public void onInitialize() {

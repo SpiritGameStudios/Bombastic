@@ -22,5 +22,9 @@
   "enchantment.bombastic.ballistic": "Ballistic",
 
   "entity.bombastic.juggling_ball": "Juggling Ball",
-  "entity.bombastic.pipe_bomb": "Pipe Bomb"
+  "entity.bombastic.pipe_bomb": "Pipe Bomb",
+
+  "config.bombastic:bombastic.title": "Bombastic",
+
+  "config.bombastic:bombastic.clownBootsMultiplier": "Clown Boots Multiplier"
 }
