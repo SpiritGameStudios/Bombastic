@@ -12,6 +12,8 @@ import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.client.render.entity.model.EntityModelLayers;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.RotationAxis;
 
 public class ConfettiCannonBlockEntityRenderer implements BlockEntityRenderer<ConfettiCannonBlockEntity> {
     public static final Identifier TEXTURE = Identifier.of("bombastic", "textures/block/confetti_cannon.png");
@@ -40,8 +42,12 @@ public class ConfettiCannonBlockEntityRenderer implements BlockEntityRenderer<Co
     @Override
     public void render(ConfettiCannonBlockEntity entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
         matrices.push();
-        matrices.scale(1, -1, 1);
-        matrices.translate(0.5, 0, 0.5);
+        Direction direction = entity.getCachedState().get(ConfettiCannonBlock.FACING);
+
+        matrices.translate(0.5F, 0.5F, 0.5F);
+        matrices.multiply(direction.getRotationQuaternion());
+        matrices.scale(1.0F, -1.0F, 1.0F);
+        matrices.translate(0.0F, .5F, 0.0F);
 
         TexturedModelData texturedModelData = getTexturedModelData();
         ModelPart spinner = texturedModelData.createModel().getChild("spinner");
