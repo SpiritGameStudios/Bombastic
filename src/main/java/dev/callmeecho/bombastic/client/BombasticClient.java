@@ -18,6 +18,7 @@ import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ArmorRenderer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
@@ -54,7 +55,8 @@ public class BombasticClient implements ClientModInitializer {
 
         BlockEntityRendererFactories.register(BombasticBlockEntityRegistrar.CONFETTI_CANNON, ConfettiCannonBlockEntityRenderer::new);
 
-        ModMenuHelper.addConfig(MODID, BombasticConfig.class);
+        if (!FabricLoader.getInstance().isModLoaded("axiom"))
+            ModMenuHelper.addConfig(MODID, BombasticConfig.class);
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (freezeFrames > 0) {
