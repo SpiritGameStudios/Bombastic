@@ -88,7 +88,7 @@ public class FirecrackerBlockEntity extends BlockEntity {
                 pos,
                 SoundEvents.ENTITY_FIREWORK_ROCKET_BLAST,
                 SoundCategory.BLOCKS,
-                20F,
+                1F,
                 (float)Math.random() + 1.25F
         );
 

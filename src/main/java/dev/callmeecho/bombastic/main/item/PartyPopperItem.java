@@ -1,9 +1,13 @@
 package dev.callmeecho.bombastic.main.item;
 
+import com.mojang.datafixers.util.Pair;
+import dev.callmeecho.bombastic.main.network.PartyPopperS2CPacket;
 import dev.callmeecho.bombastic.main.registry.BombasticEnchantmentComponentTypeRegistrar;
 import dev.callmeecho.bombastic.main.registry.BombasticParticleRegistrar;
 import dev.callmeecho.bombastic.main.registry.BombasticSoundEventRegistrar;
 import dev.callmeecho.bombastic.main.utils.ChangingExplosionBehavior;
+import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
@@ -11,6 +15,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
@@ -67,27 +72,12 @@ public class PartyPopperItem extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity playerEntity, Hand hand) {
         if (world.isClient) return TypedActionResult.success(playerEntity.getStackInHand(hand));
-        Vec3d direction = playerEntity.getRotationVector();
-        Random random = playerEntity.getRandom();
-        for (int i = 0; i < 250; i++) {
-            Vec3d velocity = new Vec3d(
-                    random.nextGaussian() * 0.15,
-                    random.nextGaussian() * 0.15,
-                    random.nextGaussian() * 0.15
-            );
-            velocity = velocity.add(direction.multiply(0.75F));
+        PartyPopperS2CPacket.PartyPopperPayload payload = new PartyPopperS2CPacket.PartyPopperPayload(
+                new Pair<>(new Vec3d(playerEntity.getX(), playerEntity.getEyeY(), playerEntity.getZ()).toVector3f(), playerEntity.getRotationVector().toVector3f()));
 
-            ((ServerWorld) world).spawnParticles(
-                    BombasticParticleRegistrar.CONFETTI,
-                    playerEntity.getX(),
-                    playerEntity.getEyeY() - 0.25F,
-                    playerEntity.getZ(),
-                    0,
-                    velocity.getX(),
-                    velocity.getY(),
-                    velocity.getZ(),
-                    1.0F
-            );
+        PartyPopperS2CPacket.SINGLETON.getInstance().send(payload, (ServerPlayerEntity) playerEntity);
+        for (ServerPlayerEntity player : PlayerLookup.tracking(playerEntity)) {
+            PartyPopperS2CPacket.SINGLETON.getInstance().send(payload, player);
         }
 
         world.playSound(
@@ -109,7 +99,7 @@ public class PartyPopperItem extends Item {
                 stack,
                 (enchantment, level) -> enchantment.value().modifyValue(
                         BombasticEnchantmentComponentTypeRegistrar.PARTY_POPPER_EXPLOSION,
-                        random,
+                        playerEntity.getRandom(),
                         level,
                         power
                 ));

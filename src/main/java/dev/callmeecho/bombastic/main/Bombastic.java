@@ -1,5 +1,6 @@
 package dev.callmeecho.bombastic.main;
 
+import dev.callmeecho.bombastic.main.network.PartyPopperS2CPacket;
 import dev.callmeecho.bombastic.main.registry.*;
 import dev.callmeecho.cabinetapi.config.ConfigHandler;
 import dev.callmeecho.cabinetapi.item.CabinetItemGroup;
@@ -40,11 +41,14 @@ public class Bombastic implements ModInitializer {
         RegistrarHandler.process(BombasticBlockEntityRegistrar.class, MODID);
         RegistrarHandler.process(BombasticEnchantmentComponentTypeRegistrar.class, MODID);
 
+
         Registry.register(
                 Registries.RECIPE_SERIALIZER,
                 Identifier.of(MODID, "pipe_bomb"),
                 PIPE_BOMB_RECIPE
         );
+
+        PartyPopperS2CPacket.SINGLETON.getInstance().register();
 
         GROUP.initialize();
     }

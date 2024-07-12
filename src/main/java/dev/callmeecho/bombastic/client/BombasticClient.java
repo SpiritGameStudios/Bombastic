@@ -8,6 +8,7 @@ import dev.callmeecho.bombastic.client.render.entity.model.ClownBootsEntityModel
 import dev.callmeecho.bombastic.client.render.entity.model.ClownHairEntityModel;
 import dev.callmeecho.bombastic.client.render.entity.model.JugglingBallEntityModel;
 import dev.callmeecho.bombastic.main.BombasticConfig;
+import dev.callmeecho.bombastic.main.network.PartyPopperS2CPacket;
 import dev.callmeecho.bombastic.main.particle.ConfettiParticle;
 import dev.callmeecho.bombastic.main.particle.FirecrackerFlashParticle;
 import dev.callmeecho.bombastic.main.registry.*;
@@ -54,6 +55,7 @@ public class BombasticClient implements ClientModInitializer {
         ParticleFactoryRegistry.getInstance().register(BombasticParticleRegistrar.FIRECRACKER_FLASH, FirecrackerFlashParticle.Factory::new);
 
         BlockEntityRendererFactories.register(BombasticBlockEntityRegistrar.CONFETTI_CANNON, ConfettiCannonBlockEntityRenderer::new);
+        PartyPopperS2CPacket.SINGLETON.getInstance().registerClient();
 
         if (!FabricLoader.getInstance().isModLoaded("axiom"))
             ModMenuHelper.addConfig(MODID, BombasticConfig.class);
