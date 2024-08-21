@@ -6,15 +6,19 @@
   "description": "Sending you pipe bombs since 2024",
   "authors": ["CallMeEcho", "WorldWidePixel"],
   "contact": {
-    "homepage": "https://github.com/CallMeEchoCodes/Bombastic",
-    "sources": "https://github.com/CallMeEchoCodes/Bombastic",
-    "issues": "https://github.com/CallMeEchoCodes/Bombastic/issues"
+    "homepage": "https://github.com/SpiritStudios/Bombastic",
+    "sources": "https://github.com/SpiritStudios/Bombastic",
+    "issues": "https://github.com/SpiritStudios/Bombastic/issues"
   },
   "license": "MPL-2.0",
   "environment": "*",
   "entrypoints": {
-    "main": ["dev.callmeecho.bombastic.main.Bombastic"],
-    "client": ["dev.callmeecho.bombastic.client.BombasticClient"]
+    "main": [
+      "dev.spiritstudios.bombastic.main.Bombastic"
+    ],
+    "client": [
+      "dev.spiritstudios.bombastic.client.BombasticClient"
+    ]
   },
   "mixins": ["bombastic.mixins.json"],
   "icon": "assets/bombastic/icon.png",

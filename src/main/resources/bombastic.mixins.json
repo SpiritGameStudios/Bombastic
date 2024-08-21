@@ -2,7 +2,7 @@
   "required": true,
   "minVersion": "0.8",
   "compatibilityLevel": "JAVA_21",
-  "package": "dev.callmeecho.bombastic.mixin",
+  "package": "dev.spiritstudios.bombastic.mixin",
   "mixins": [
     "EntityMixin",
     "ItemMixin",

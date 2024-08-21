@@ -18,7 +18,7 @@ loom {
 
 repositories {
     maven("https://maven.terraformersmc.com/releases/")
-    maven("https://maven.callmeecho.dev/releases/")
+    maven("https://maven.callmeecho.dev/snapshots/")
 }
 
 dependencies {
@@ -27,9 +27,19 @@ dependencies {
     modImplementation("net.fabricmc:fabric-loader:${loaderVersion}")
 
     modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric_api")}")
-    modImplementation("dev.callmeecho:cabinetapi:${property("deps.cabinetapi")}")
-    include("dev.callmeecho:cabinetapi:${property("deps.cabinetapi")}")
-}
+    fun specterModule(name: String) {
+        include("dev.spiritstudios.specter:specter-$name:${property("deps.specter")}")
+        modImplementation("dev.spiritstudios.specter:specter-$name:${property("deps.specter")}")
+    }
+
+    specterModule("api")
+    specterModule("core")
+    specterModule("config")
+    specterModule("item")
+    specterModule("block")
+    specterModule("registry")
+    specterModule("render")
+    specterModule("biome")}
 
 
 tasks.processResources {
