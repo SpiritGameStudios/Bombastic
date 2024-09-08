@@ -58,8 +58,7 @@ public class BombasticClient implements ClientModInitializer {
         BlockEntityRendererFactories.register(BombasticBlockEntityRegistrar.CONFETTI_CANNON, ConfettiCannonBlockEntityRenderer::new);
         ClientPlayNetworking.registerGlobalReceiver(PartyPopperS2CPacket.ID, PartyPopperS2CPacket::receive);
 
-        if (!FabricLoader.getInstance().isModLoaded("axiom"))
-            ModMenuHelper.addConfig(MODID, BombasticConfig.class);
+        ModMenuHelper.addConfig(MODID, BombasticConfig.INSTANCE.getId());
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (freezeFrames > 0) {

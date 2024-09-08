@@ -1,6 +1,7 @@
 package dev.spiritstudios.bombastic.mixin;
 
 import dev.spiritstudios.bombastic.main.Bombastic;
+import dev.spiritstudios.bombastic.main.BombasticConfig;
 import dev.spiritstudios.bombastic.main.RandomHelper;
 import dev.spiritstudios.bombastic.main.registry.BombasticItemRegistrar;
 import dev.spiritstudios.bombastic.main.registry.BombasticSoundEventRegistrar;
@@ -59,9 +60,9 @@ public abstract class EntityMixin {
                 new EntityVelocityUpdateS2CPacket(
                         playerEntity.getId(),
                         playerEntity.getVelocity().multiply(
-                                Bombastic.CONFIG.clownBootsMultiplier,
+                                BombasticConfig.INSTANCE.clownBootsMultiplier.get(),
                                 0.0F,
-                                Bombastic.CONFIG.clownBootsMultiplier
+                                BombasticConfig.INSTANCE.clownBootsMultiplier.get()
                         )
                 )
         );

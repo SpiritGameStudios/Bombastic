@@ -15,7 +15,6 @@
     "ProjectileEntityMixin"
   ],
   "server": [],
-  "plugin": "dev.callmeecho.cabinetapi.util.ConditionalMixinPlugin",
   "injectors": {
     "defaultRequire": 1
   }

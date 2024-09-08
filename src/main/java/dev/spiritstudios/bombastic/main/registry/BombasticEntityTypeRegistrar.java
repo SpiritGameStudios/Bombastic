@@ -14,8 +14,7 @@ public class BombasticEntityTypeRegistrar implements EntityTypeRegistrar {
             .dimensions(0.25F, 0.25F)
             .maxTrackingRange(64)
             .trackingTickInterval(1)
-            .alwaysUpdateVelocity(true)
-            .build();
+            .build("pipe_bomb");
 
     public static final EntityType<JugglingBallEntity> JUGGLING_BALL = EntityType.Builder.create(
                     JugglingBallEntity::new,
@@ -23,6 +22,5 @@ public class BombasticEntityTypeRegistrar implements EntityTypeRegistrar {
             .dimensions(0.45F, 0.45F)
             .maxTrackingRange(64)
             .trackingTickInterval(1)
-            .alwaysUpdateVelocity(true)
-            .build();
+            .build("juggling_ball");
 }

@@ -9,10 +9,10 @@ public class BombasticBlockEntityRegistrar implements BlockEntityTypeRegistrar {
     public static final BlockEntityType<ConfettiCannonBlockEntity> CONFETTI_CANNON = BlockEntityType.Builder.create(
             ConfettiCannonBlockEntity::new,
             BombasticBlockRegistrar.CONFETTI_CANNON
-    ).build();
+    ).build(null);
 
     public static final BlockEntityType<FirecrackerBlockEntity> FIRECRACKER = BlockEntityType.Builder.create(
             FirecrackerBlockEntity::new,
             BombasticBlockRegistrar.FIRECRACKER
-    ).build();
+    ).build(null);
 }

@@ -1,5 +1,5 @@
 {
-  "itemGroup.bombastic.group": "Bombastic",
+  "item_group.bombastic.bombastic": "Bombastic",
 
   "item.bombastic.clown_boots": "Clown Boots",
   "item.bombastic.clown_hair": "Clown Hair",
@@ -24,7 +24,7 @@
   "entity.bombastic.juggling_ball": "Juggling Ball",
   "entity.bombastic.pipe_bomb": "Pipe Bomb",
 
-  "config.bombastic:bombastic.title": "Bombastic",
+  "config.bombastic.bombastic.title": "Bombastic",
 
-  "config.bombastic:bombastic.clownBootsMultiplier": "Clown Boots Multiplier"
+  "config.bombastic.bombastic.clownBootsMultiplier": "Clown Boots Multiplier"
 }

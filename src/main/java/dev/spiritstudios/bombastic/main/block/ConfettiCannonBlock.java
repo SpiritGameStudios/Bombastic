@@ -72,9 +72,9 @@ public class ConfettiCannonBlock extends BlockWithEntity {
             case DOWN -> VoxelShapeHelperFix.flipY(UP);
             case UP -> UP;
 
-            case NORTH -> VoxelShapeHelper.rotate(Direction.NORTH, Direction.EAST, VoxelShapeHelperFix.rotateZ(UP));
-            case SOUTH -> VoxelShapeHelper.rotate(Direction.SOUTH, Direction.EAST, VoxelShapeHelperFix.rotateZ(UP));
-            case WEST -> VoxelShapeHelper.rotate(Direction.WEST, Direction.EAST, VoxelShapeHelperFix.rotateZ(UP));
+            case NORTH -> VoxelShapeHelper.rotateHorizontal(Direction.NORTH, Direction.EAST, VoxelShapeHelperFix.rotateZ(UP));
+            case SOUTH -> VoxelShapeHelper.rotateHorizontal(Direction.SOUTH, Direction.EAST, VoxelShapeHelperFix.rotateZ(UP));
+            case WEST -> VoxelShapeHelper.rotateHorizontal(Direction.WEST, Direction.EAST, VoxelShapeHelperFix.rotateZ(UP));
             case EAST -> VoxelShapeHelperFix.rotateZ(UP);
         };
     }

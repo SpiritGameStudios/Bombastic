@@ -18,6 +18,9 @@
     ],
     "client": [
       "dev.spiritstudios.bombastic.client.BombasticClient"
+    ],
+    "fabric-datagen": [
+      "dev.spiritstudios.bombastic.main.datagen.BombasticDatagen"
     ]
   },
   "mixins": ["bombastic.mixins.json"],
@@ -25,10 +28,10 @@
   "accessWidener": "bombastic.accesswidener",
   "depends": {
     "fabricloader": ">=0.15.11",
-    "minecraft": "1.21",
+    "minecraft": "~1.21-",
     "java": ">=21",
     "fabric-api": "*",
-    "cabinetapi": "*"
+    "specter": "*"
   },
   "custom": {
     "modmenu": {

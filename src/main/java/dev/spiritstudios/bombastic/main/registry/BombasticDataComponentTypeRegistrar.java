@@ -2,6 +2,7 @@ package dev.spiritstudios.bombastic.main.registry;
 
 import com.mojang.serialization.Codec;
 import dev.spiritstudios.specter.api.registry.registration.MinecraftRegistrar;
+import dev.spiritstudios.specter.api.registry.registration.Registrar;
 import net.minecraft.component.ComponentType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.codec.PacketCodecs;
@@ -23,4 +24,9 @@ public class BombasticDataComponentTypeRegistrar implements MinecraftRegistrar<C
 
     @Override
     public Registry<ComponentType<?>> getRegistry() { return Registries.DATA_COMPONENT_TYPE; }
+
+    @Override
+    public Class<ComponentType<?>> getObjectType() {
+        return Registrar.fixGenerics(ComponentType.class);
+    }
 }

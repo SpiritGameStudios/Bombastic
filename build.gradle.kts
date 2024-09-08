@@ -12,13 +12,17 @@ class ModInfo {
 val mod = ModInfo()
 val loaderVersion = property("deps.fabric_loader").toString()
 
+fabricApi {
+    configureDataGeneration()
+}
+
 loom {
     accessWidenerPath = file("src/main/resources/bombastic.accesswidener")
 }
 
 repositories {
     maven("https://maven.terraformersmc.com/releases/")
-    maven("https://maven.callmeecho.dev/snapshots/")
+    maven("https://maven.callmeecho.dev/releases/")
 }
 
 dependencies {
@@ -39,7 +43,7 @@ dependencies {
     specterModule("block")
     specterModule("registry")
     specterModule("render")
-    specterModule("biome")}
+}
 
 
 tasks.processResources {

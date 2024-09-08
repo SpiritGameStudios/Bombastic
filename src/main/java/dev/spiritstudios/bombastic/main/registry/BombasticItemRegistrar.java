@@ -12,13 +12,13 @@ import java.lang.reflect.Field;
 
 @SuppressWarnings("unused")
 public class BombasticItemRegistrar implements ItemRegistrar {
-    public static ClownBoots CLOWN_BOOTS = new ClownBoots(
+    public static ArmorItem CLOWN_BOOTS = new ArmorItem(
             BombasticArmorMaterials.CLOWN,
             ArmorItem.Type.BOOTS,
             new Item.Settings().maxCount(1).maxDamage(100)
     );
 
-    public static ClownHair CLOWN_HAIR = new ClownHair(
+    public static ArmorItem CLOWN_HAIR = new ArmorItem(
             BombasticArmorMaterials.CLOWN,
             ArmorItem.Type.HELMET,
             new Item.Settings().maxCount(1).maxDamage(100)
@@ -28,11 +28,4 @@ public class BombasticItemRegistrar implements ItemRegistrar {
     public static PipeBombItem PIPE_BOMB = new PipeBombItem(new Item.Settings().maxCount(16));
     public static PartyPopperItem PARTY_POPPER = new PartyPopperItem(new Item.Settings().maxCount(1).maxDamage(150));
     public static JugglingBallItem JUGGLING_BALL = new JugglingBallItem(new Item.Settings().maxCount(1).maxDamage(75));
-
-
-    @Override
-    public void register(String name, String namespace, Item object, Field field) {
-        Registry.register(getRegistry(), Identifier.of(namespace, name), object);
-        Bombastic.GROUP.addItem(object);
-    }
 }

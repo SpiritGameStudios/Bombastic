@@ -25,13 +25,4 @@ public class BombasticBlockRegistrar implements BlockRegistrar {
     );
 
     public static final FirecrackerBlock FIRECRACKER = new FirecrackerBlock(AbstractBlock.Settings.create().mapColor(MapColor.BRIGHT_RED).breakInstantly().sounds(BlockSoundGroup.GRASS).burnable().solidBlock(Blocks::never));
-
-
-    @Override
-    public void registerBlockItem(Block block, String namespace, String name) {
-        BlockItem item = new BlockItem(block, new Item.Settings());
-        Registry.register(Registries.ITEM, Identifier.of(namespace, name), item);
-
-        Bombastic.GROUP.addItem(item);
-    }
 }

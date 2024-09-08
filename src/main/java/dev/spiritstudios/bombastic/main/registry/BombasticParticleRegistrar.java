@@ -1,6 +1,7 @@
 package dev.spiritstudios.bombastic.main.registry;
 
 import dev.spiritstudios.specter.api.registry.registration.MinecraftRegistrar;
+import dev.spiritstudios.specter.api.registry.registration.Registrar;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.particle.ParticleType;
 import net.minecraft.particle.SimpleParticleType;
@@ -16,4 +17,9 @@ public class BombasticParticleRegistrar implements MinecraftRegistrar<ParticleTy
 
     @Override
     public Registry<ParticleType<?>> getRegistry() { return Registries.PARTICLE_TYPE; }
+
+    @Override
+    public Class<ParticleType<?>> getObjectType() {
+        return Registrar.fixGenerics(ParticleType.class);
+    }
 }
