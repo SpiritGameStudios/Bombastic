@@ -12,7 +12,7 @@ import dev.spiritstudios.bombastic.main.network.PartyPopperS2CPacket;
 import dev.spiritstudios.bombastic.main.particle.ConfettiParticle;
 import dev.spiritstudios.bombastic.main.particle.FirecrackerFlashParticle;
 import dev.spiritstudios.bombastic.main.registry.*;
-import dev.spiritstudios.specter.api.ModMenuHelper;
+import dev.spiritstudios.specter.api.config.ModMenuHelper;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
@@ -58,7 +58,7 @@ public class BombasticClient implements ClientModInitializer {
         BlockEntityRendererFactories.register(BombasticBlockEntityRegistrar.CONFETTI_CANNON, ConfettiCannonBlockEntityRenderer::new);
         ClientPlayNetworking.registerGlobalReceiver(PartyPopperS2CPacket.ID, PartyPopperS2CPacket::receive);
 
-        ModMenuHelper.addConfig(MODID, BombasticConfig.INSTANCE.getId());
+        ModMenuHelper.addConfig(MODID, BombasticConfig.HOLDER.id());
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (freezeFrames > 0) {

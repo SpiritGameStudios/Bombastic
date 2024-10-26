@@ -39,6 +39,7 @@ dependencies {
     specterModule("api")
     specterModule("core")
     specterModule("config")
+    specterModule("serialization")
     specterModule("item")
     specterModule("block")
     specterModule("registry")
