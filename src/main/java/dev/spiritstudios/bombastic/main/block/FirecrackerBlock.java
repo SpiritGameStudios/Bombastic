@@ -2,7 +2,7 @@ package dev.spiritstudios.bombastic.main.block;
 
 import com.mojang.serialization.MapCodec;
 import dev.spiritstudios.bombastic.main.block.entity.FirecrackerBlockEntity;
-import dev.spiritstudios.bombastic.main.registry.BombasticBlockEntityRegistrar;
+import dev.spiritstudios.bombastic.main.registry.BombasticBlockEntities;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -102,7 +102,7 @@ public class FirecrackerBlock extends BlockWithEntity {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return validateTicker(type, BombasticBlockEntityRegistrar.FIRECRACKER, FirecrackerBlockEntity::tick);
+        return validateTicker(type, BombasticBlockEntities.FIRECRACKER, FirecrackerBlockEntity::tick);
     }
 
     @Nullable

@@ -1,8 +1,8 @@
 package dev.spiritstudios.bombastic.main.block.entity;
 
 import dev.spiritstudios.bombastic.main.block.ConfettiCannonBlock;
-import dev.spiritstudios.bombastic.main.registry.BombasticBlockEntityRegistrar;
-import dev.spiritstudios.bombastic.main.registry.BombasticParticleRegistrar;
+import dev.spiritstudios.bombastic.main.registry.BombasticBlockEntities;
+import dev.spiritstudios.bombastic.main.registry.BombasticParticleTypes;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -11,7 +11,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
 public class ConfettiCannonBlockEntity extends BlockEntity {
-    public ConfettiCannonBlockEntity(BlockPos pos, BlockState state) { super(BombasticBlockEntityRegistrar.CONFETTI_CANNON, pos, state); }
+    public ConfettiCannonBlockEntity(BlockPos pos, BlockState state) { super(BombasticBlockEntities.CONFETTI_CANNON, pos, state); }
 
     public int age;
     public static void tick(World world, BlockPos pos, BlockState state, ConfettiCannonBlockEntity blockEntity) {
@@ -34,7 +34,7 @@ public class ConfettiCannonBlockEntity extends BlockEntity {
 
         for (int i = 0; i < 2; i++) {
             ((ServerWorld)world).spawnParticles(
-                    BombasticParticleRegistrar.CONFETTI,
+                    BombasticParticleTypes.CONFETTI,
                     pos.getX() + xOff,
                     pos.getY() + yOff,
                     pos.getZ() + zOff,

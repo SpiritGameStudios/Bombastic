@@ -20,7 +20,6 @@ import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ArmorRenderer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
@@ -35,27 +34,27 @@ public class BombasticClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        EntityRendererRegistry.register(BombasticEntityTypeRegistrar.PIPE_BOMB, FlyingItemEntityRenderer::new);
-        EntityRendererRegistry.register(BombasticEntityTypeRegistrar.JUGGLING_BALL, JugglingBallEntityRenderer::new);
+        EntityRendererRegistry.register(BombasticEntityTypes.PIPE_BOMB, FlyingItemEntityRenderer::new);
+        EntityRendererRegistry.register(BombasticEntityTypes.JUGGLING_BALL, JugglingBallEntityRenderer::new);
 
         ModelPredicateProviderRegistry.register(
-                BombasticItemRegistrar.PIPE_BOMB,
+                BombasticItems.PIPE_BOMB,
                 Identifier.of("pipe_bomb_lit"),
                 (itemStack, world, entity, i) ->
-                        itemStack.getOrDefault(BombasticDataComponentTypeRegistrar.PINNED, true) ? 0.0F : 1.0F
+                        itemStack.getOrDefault(BombasticDataComponentTypes.PINNED, true) ? 0.0F : 1.0F
         );
 
         EntityModelLayerRegistry.registerModelLayer(ClownBootsEntityModel.LAYER_LOCATION, ClownBootsEntityModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(ClownHairEntityModel.LAYER_LOCATION, ClownHairEntityModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(JugglingBallEntityModel.LAYER_LOCATION, JugglingBallEntityModel::getTexturedModelData);
 
-        ArmorRenderer.register(new ClownBootsRenderer(), BombasticItemRegistrar.CLOWN_BOOTS);
-        ArmorRenderer.register(new ClownHairRenderer(), BombasticItemRegistrar.CLOWN_HAIR);
+        ArmorRenderer.register(new ClownBootsRenderer(), BombasticItems.CLOWN_BOOTS);
+        ArmorRenderer.register(new ClownHairRenderer(), BombasticItems.CLOWN_HAIR);
 
-        ParticleFactoryRegistry.getInstance().register(BombasticParticleRegistrar.CONFETTI, ConfettiParticle.Factory::new);
-        ParticleFactoryRegistry.getInstance().register(BombasticParticleRegistrar.FIRECRACKER_FLASH, FirecrackerFlashParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(BombasticParticleTypes.CONFETTI, ConfettiParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(BombasticParticleTypes.FIRECRACKER_FLASH, FirecrackerFlashParticle.Factory::new);
 
-        BlockEntityRendererFactories.register(BombasticBlockEntityRegistrar.CONFETTI_CANNON, ConfettiCannonBlockEntityRenderer::new);
+        BlockEntityRendererFactories.register(BombasticBlockEntities.CONFETTI_CANNON, ConfettiCannonBlockEntityRenderer::new);
         ClientPlayNetworking.registerGlobalReceiver(PartyPopperS2CPacket.ID, PartyPopperS2CPacket::receive);
 
         ModMenuHelper.addConfig(MODID, BombasticConfig.HOLDER.id());

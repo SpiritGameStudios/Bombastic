@@ -2,7 +2,7 @@ package dev.spiritstudios.bombastic.main.network;
 
 import com.mojang.datafixers.util.Pair;
 import dev.spiritstudios.bombastic.main.Bombastic;
-import dev.spiritstudios.bombastic.main.registry.BombasticParticleRegistrar;
+import dev.spiritstudios.bombastic.main.registry.BombasticParticleTypes;
 import io.netty.buffer.ByteBuf;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
@@ -43,7 +43,7 @@ public class PartyPopperS2CPacket {
             velocity = velocity.add(direction.multiply(0.75F));
 
             context.player().getWorld().addParticle(
-                    BombasticParticleRegistrar.CONFETTI,
+                    BombasticParticleTypes.CONFETTI,
                     pos.x(),
                     pos.y() - 0.25F,
                     pos.z(),

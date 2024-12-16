@@ -1,7 +1,7 @@
 package dev.spiritstudios.bombastic.main.item;
 
 import dev.spiritstudios.bombastic.main.entity.PipeBombEntity;
-import dev.spiritstudios.bombastic.main.registry.BombasticDataComponentTypeRegistrar;
+import dev.spiritstudios.bombastic.main.registry.BombasticDataComponentTypes;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -18,7 +18,7 @@ public class PipeBombItem extends Item {
 
         if (world.isClient) return;
         if (!(entity instanceof PlayerEntity)) return;
-        if (itemStack.getOrDefault(BombasticDataComponentTypeRegistrar.PINNED, true) && !selected) return;
+        if (itemStack.getOrDefault(BombasticDataComponentTypes.PINNED, true) && !selected) return;
 
         for (int i = 0; i < itemStack.getCount(); i++) {
             entity.playSound(SoundEvents.BLOCK_TRIPWIRE_CLICK_OFF, 1.0F, 1.0F);

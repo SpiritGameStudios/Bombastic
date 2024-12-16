@@ -2,10 +2,14 @@ package dev.spiritstudios.bombastic.main.block;
 
 import com.mojang.serialization.MapCodec;
 import dev.spiritstudios.bombastic.main.block.entity.ConfettiCannonBlockEntity;
-import dev.spiritstudios.bombastic.main.registry.BombasticBlockEntityRegistrar;
+import dev.spiritstudios.bombastic.main.registry.BombasticBlockEntities;
 import dev.spiritstudios.bombastic.main.utils.VoxelShapeHelperFix;
-import dev.spiritstudios.specter.api.core.util.VoxelShapeHelper;
-import net.minecraft.block.*;
+import dev.spiritstudios.specter.api.core.math.VoxelShapeHelper;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockRenderType;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.BlockWithEntity;
+import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
@@ -97,7 +101,7 @@ public class ConfettiCannonBlock extends BlockWithEntity {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return validateTicker(type, BombasticBlockEntityRegistrar.CONFETTI_CANNON, ConfettiCannonBlockEntity::tick);
+        return validateTicker(type, BombasticBlockEntities.CONFETTI_CANNON, ConfettiCannonBlockEntity::tick);
     }
 
     @Nullable

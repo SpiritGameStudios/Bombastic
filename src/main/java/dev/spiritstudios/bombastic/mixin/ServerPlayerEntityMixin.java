@@ -1,7 +1,7 @@
 package dev.spiritstudios.bombastic.mixin;
 
 import com.mojang.authlib.GameProfile;
-import dev.spiritstudios.bombastic.main.registry.BombasticItemRegistrar;
+import dev.spiritstudios.bombastic.main.registry.BombasticItems;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -26,7 +26,7 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity {
     @Inject(method = "tick", at = @At("RETURN"))
     private void tick(CallbackInfo ci) {
         ItemStack itemStack = this.getEquippedStack(EquipmentSlot.FEET);
-        if (!itemStack.isOf(BombasticItemRegistrar.CLOWN_BOOTS)) return;
+        if (!itemStack.isOf(BombasticItems.CLOWN_BOOTS)) return;
 
         if (this.isOnGround()) {
             this.setSpawnExtraParticlesOnFall(true);

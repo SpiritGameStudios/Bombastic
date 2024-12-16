@@ -1,9 +1,9 @@
 package dev.spiritstudios.bombastic.main.block.entity;
 
 import dev.spiritstudios.bombastic.main.block.FirecrackerBlock;
-import dev.spiritstudios.bombastic.main.registry.BombasticBlockEntityRegistrar;
-import dev.spiritstudios.bombastic.main.registry.BombasticBlockRegistrar;
-import dev.spiritstudios.bombastic.main.registry.BombasticParticleRegistrar;
+import dev.spiritstudios.bombastic.main.registry.BombasticBlockEntities;
+import dev.spiritstudios.bombastic.main.registry.BombasticBlocks;
+import dev.spiritstudios.bombastic.main.registry.BombasticParticleTypes;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.TntBlock;
@@ -31,7 +31,7 @@ public class FirecrackerBlockEntity extends BlockEntity {
     );
 
     public FirecrackerBlockEntity(BlockPos pos, BlockState state) {
-        super(BombasticBlockEntityRegistrar.FIRECRACKER, pos, state);
+        super(BombasticBlockEntities.FIRECRACKER, pos, state);
     }
 
     public static void tick(World world, BlockPos pos, BlockState state, FirecrackerBlockEntity blockEntity) {
@@ -51,7 +51,7 @@ public class FirecrackerBlockEntity extends BlockEntity {
         for (Direction direction : Direction.values()) {
             BlockPos offsetPos = pos.offset(direction);
             BlockState offsetState = world.getBlockState(offsetPos);
-            if (offsetState.isOf(BombasticBlockRegistrar.FIRECRACKER))
+            if (offsetState.isOf(BombasticBlocks.FIRECRACKER))
                 world.setBlockState(offsetPos, offsetState.with(FirecrackerBlock.UNSTABLE, true));
             else if (offsetState.isOf(Blocks.TNT)) {
                 TntBlock.primeTnt(world, offsetPos);
@@ -71,8 +71,8 @@ public class FirecrackerBlockEntity extends BlockEntity {
                 false,
                 World.ExplosionSourceType.TNT,
                 false,
-                BombasticParticleRegistrar.NULL,
-                BombasticParticleRegistrar.NULL,
+                BombasticParticleTypes.NULL,
+                BombasticParticleTypes.NULL,
                 Registries.SOUND_EVENT.getEntry(SoundEvents.INTENTIONALLY_EMPTY)
         );
 
@@ -86,7 +86,7 @@ public class FirecrackerBlockEntity extends BlockEntity {
         );
 
         ((ServerWorld)world).spawnParticles(
-                BombasticParticleRegistrar.FIRECRACKER_FLASH,
+                BombasticParticleTypes.FIRECRACKER_FLASH,
                 pos.getX() + 0.5,
                 pos.getY() + 0.5,
                 pos.getZ() + 0.5,

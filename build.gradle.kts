@@ -22,7 +22,7 @@ loom {
 
 repositories {
     maven("https://maven.terraformersmc.com/releases/")
-    maven("https://maven.callmeecho.dev/releases/")
+    maven("https://maven.spiritstudios.dev/releases/")
 }
 
 dependencies {

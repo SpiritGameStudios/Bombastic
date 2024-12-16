@@ -1,10 +1,9 @@
 package dev.spiritstudios.bombastic.mixin;
 
-import dev.spiritstudios.bombastic.main.Bombastic;
 import dev.spiritstudios.bombastic.main.BombasticConfig;
 import dev.spiritstudios.bombastic.main.RandomHelper;
-import dev.spiritstudios.bombastic.main.registry.BombasticItemRegistrar;
-import dev.spiritstudios.bombastic.main.registry.BombasticSoundEventRegistrar;
+import dev.spiritstudios.bombastic.main.registry.BombasticItems;
+import dev.spiritstudios.bombastic.main.registry.BombasticSoundEvents;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
@@ -44,7 +43,7 @@ public abstract class EntityMixin {
     private BlockSoundGroup playStepSound(BlockState instance) {
         if (!((Object)this instanceof PlayerEntity playerEntity)) return instance.getSoundGroup();
         ItemStack itemStack = playerEntity.getEquippedStack(EquipmentSlot.FEET);
-        if (!itemStack.isOf(BombasticItemRegistrar.CLOWN_BOOTS)) return instance.getSoundGroup();
+        if (!itemStack.isOf(BombasticItems.CLOWN_BOOTS)) return instance.getSoundGroup();
 
         return BlockSoundGroup.SLIME;
     }
@@ -54,7 +53,7 @@ public abstract class EntityMixin {
     private void onExplodedBy(Entity entity, CallbackInfo ci) {
         if (!((Object)this instanceof ServerPlayerEntity playerEntity)) return;
         ItemStack itemStack = playerEntity.getEquippedStack(EquipmentSlot.FEET);
-        if (!itemStack.isOf(BombasticItemRegistrar.CLOWN_BOOTS)) return;
+        if (!itemStack.isOf(BombasticItems.CLOWN_BOOTS)) return;
 
         playerEntity.networkHandler.sendPacket(
                 new EntityVelocityUpdateS2CPacket(
@@ -72,7 +71,7 @@ public abstract class EntityMixin {
                 getX(),
                 getY(),
                 getZ(),
-                BombasticSoundEventRegistrar.CLOWN_BOOTS,
+                BombasticSoundEvents.CLOWN_BOOTS,
                 SoundCategory.PLAYERS,
                 5.0F,
                 RandomHelper.nextFloatBetween(random, 0.8F, 1.2F)

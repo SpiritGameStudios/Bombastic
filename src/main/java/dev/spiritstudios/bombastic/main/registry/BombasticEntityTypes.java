@@ -2,12 +2,11 @@ package dev.spiritstudios.bombastic.main.registry;
 
 import dev.spiritstudios.bombastic.main.entity.JugglingBallEntity;
 import dev.spiritstudios.bombastic.main.entity.PipeBombEntity;
-import dev.spiritstudios.specter.api.registry.registration.EntityTypeRegistrar;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 
 @SuppressWarnings("unused")
-public class BombasticEntityTypeRegistrar implements EntityTypeRegistrar {
+public class BombasticEntityTypes {
     public static final EntityType<PipeBombEntity> PIPE_BOMB = EntityType.Builder.create(
             PipeBombEntity::new,
             SpawnGroup.MISC)

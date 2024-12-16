@@ -1,9 +1,13 @@
 package dev.spiritstudios.bombastic.main.particle;
 
-import dev.spiritstudios.specter.api.core.util.Easing;
+import dev.spiritstudios.specter.api.core.math.Easing;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.particle.*;
+import net.minecraft.client.particle.Particle;
+import net.minecraft.client.particle.ParticleFactory;
+import net.minecraft.client.particle.ParticleTextureSheet;
+import net.minecraft.client.particle.SpriteBillboardParticle;
+import net.minecraft.client.particle.SpriteProvider;
 import net.minecraft.client.render.Camera;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.world.ClientWorld;
@@ -12,6 +16,8 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.random.Random;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
+
+;
 
 public class ConfettiParticle extends SpriteBillboardParticle {
     Quaternionf rotation;

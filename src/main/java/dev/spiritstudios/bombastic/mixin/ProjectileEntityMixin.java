@@ -1,7 +1,7 @@
 package dev.spiritstudios.bombastic.mixin;
 
 import dev.spiritstudios.bombastic.client.BombasticClient;
-import dev.spiritstudios.bombastic.main.registry.BombasticSoundEventRegistrar;
+import dev.spiritstudios.bombastic.main.registry.BombasticSoundEvents;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.Entity;
@@ -36,7 +36,7 @@ public abstract class ProjectileEntityMixin extends Entity {
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         if (player == null) return;
         player.playSound(
-                BombasticSoundEventRegistrar.PARRY,
+                BombasticSoundEvents.PARRY,
                 1.0F,
                 2.0F
         );

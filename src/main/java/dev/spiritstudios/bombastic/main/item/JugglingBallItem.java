@@ -1,7 +1,7 @@
 package dev.spiritstudios.bombastic.main.item;
 
 import dev.spiritstudios.bombastic.main.entity.JugglingBallEntity;
-import dev.spiritstudios.bombastic.main.registry.BombasticSoundEventRegistrar;
+import dev.spiritstudios.bombastic.main.registry.BombasticSoundEvents;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -37,7 +37,7 @@ public class JugglingBallItem extends Item {
         stack.decrement(1);
 
         user.getItemCooldownManager().set(this, 10);
-        world.playSound(null, user.getX(), user.getY(), user.getZ(), BombasticSoundEventRegistrar.JUGGLING_BALL, user.getSoundCategory(), 1.0F, 1.0F);
+        world.playSound(null, user.getX(), user.getY(), user.getZ(), BombasticSoundEvents.JUGGLING_BALL, user.getSoundCategory(), 1.0F, 1.0F);
 
         return TypedActionResult.success(stack);
     }

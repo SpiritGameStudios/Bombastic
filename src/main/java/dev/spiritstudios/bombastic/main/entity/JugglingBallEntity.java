@@ -1,8 +1,8 @@
 package dev.spiritstudios.bombastic.main.entity;
 
-import dev.spiritstudios.bombastic.main.registry.BombasticEnchantmentComponentTypeRegistrar;
-import dev.spiritstudios.bombastic.main.registry.BombasticEntityTypeRegistrar;
-import dev.spiritstudios.bombastic.main.registry.BombasticItemRegistrar;
+import dev.spiritstudios.bombastic.main.registry.BombasticEnchantmentComponentTypes;
+import dev.spiritstudios.bombastic.main.registry.BombasticEntityTypes;
+import dev.spiritstudios.bombastic.main.registry.BombasticItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.*;
@@ -34,7 +34,7 @@ public class JugglingBallEntity extends PersistentProjectileEntity implements Fl
     private ItemStack stack = ItemStack.EMPTY;
 
     public JugglingBallEntity(EntityType<? extends PersistentProjectileEntity> entityType, World world) {
-        super(BombasticEntityTypeRegistrar.JUGGLING_BALL, world);
+        super(BombasticEntityTypes.JUGGLING_BALL, world);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class JugglingBallEntity extends PersistentProjectileEntity implements Fl
     }
 
     public static JugglingBallEntity create(World world, PlayerEntity player, ItemStack stack, int returnSlot) {
-        JugglingBallEntity ball = new JugglingBallEntity(BombasticEntityTypeRegistrar.JUGGLING_BALL, world);
+        JugglingBallEntity ball = new JugglingBallEntity(BombasticEntityTypes.JUGGLING_BALL, world);
 
         ball.setOwner(player);
         ball.setPos(player.getX(), player.getEyeY() - 0.1, player.getZ());
@@ -55,7 +55,7 @@ public class JugglingBallEntity extends PersistentProjectileEntity implements Fl
         EnchantmentHelper.forEachEnchantment(
                 stack,
                 (enchantment, level) -> enchantment.value().modifyValue(
-                        BombasticEnchantmentComponentTypeRegistrar.JUGGLING_BALL_BOUNCE,
+                        BombasticEnchantmentComponentTypes.JUGGLING_BALL_BOUNCE,
                         player.getRandom(),
                         level,
                         bounces
@@ -211,12 +211,12 @@ public class JugglingBallEntity extends PersistentProjectileEntity implements Fl
 
     @Override
     protected ItemStack getDefaultItemStack() {
-        return new ItemStack(BombasticItemRegistrar.JUGGLING_BALL);
+        return new ItemStack(BombasticItems.JUGGLING_BALL);
     }
 
     @Override
     protected double getGravity() { return 0.05F; }
 
     @Override
-    public ItemStack getStack() { return !stack.isEmpty() ? stack.copy() : new ItemStack(BombasticItemRegistrar.JUGGLING_BALL); }
+    public ItemStack getStack() { return !stack.isEmpty() ? stack.copy() : new ItemStack(BombasticItems.JUGGLING_BALL); }
 }

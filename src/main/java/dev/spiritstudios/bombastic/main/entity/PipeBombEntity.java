@@ -1,9 +1,9 @@
 package dev.spiritstudios.bombastic.main.entity;
 
-import dev.spiritstudios.bombastic.main.registry.BombasticDataComponentTypeRegistrar;
-import dev.spiritstudios.bombastic.main.registry.BombasticEntityTypeRegistrar;
-import dev.spiritstudios.bombastic.main.registry.BombasticItemRegistrar;
-import dev.spiritstudios.bombastic.main.registry.BombasticParticleRegistrar;
+import dev.spiritstudios.bombastic.main.registry.BombasticDataComponentTypes;
+import dev.spiritstudios.bombastic.main.registry.BombasticEntityTypes;
+import dev.spiritstudios.bombastic.main.registry.BombasticItems;
+import dev.spiritstudios.bombastic.main.registry.BombasticParticleTypes;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.FlyingItemEntity;
 import net.minecraft.entity.data.DataTracker;
@@ -36,12 +36,12 @@ public class PipeBombEntity extends PersistentProjectileEntity implements Flying
     }
 
     public static PipeBombEntity create(World world, ItemStack itemStack, PlayerEntity player) {
-        PipeBombEntity pipeBomb = new PipeBombEntity(BombasticEntityTypeRegistrar.PIPE_BOMB, world);
+        PipeBombEntity pipeBomb = new PipeBombEntity(BombasticEntityTypes.PIPE_BOMB, world);
 
         pipeBomb.setOwner(player);
         pipeBomb.setPos(player.getX(), player.getEyeY() - 0.1, player.getZ());
 
-        pipeBomb.triggers = itemStack.get(BombasticDataComponentTypeRegistrar.TRIGGERS);
+        pipeBomb.triggers = itemStack.get(BombasticDataComponentTypes.TRIGGERS);
 
         return pipeBomb;
     }
@@ -120,10 +120,10 @@ public class PipeBombEntity extends PersistentProjectileEntity implements Flying
                         World.ExplosionSourceType.TRIGGER
                 );
             }
-            else if (trigger.isOf(BombasticItemRegistrar.PARTY_POPPER)) {
+            else if (trigger.isOf(BombasticItems.PARTY_POPPER)) {
                 for (int i = 0; i < 50; i++) {
                     ((ServerWorld)getWorld()).spawnParticles(
-                            BombasticParticleRegistrar.CONFETTI,
+                            BombasticParticleTypes.CONFETTI,
                             this.getX(),
                             this.getY(),
                             this.getZ(),
@@ -162,8 +162,8 @@ public class PipeBombEntity extends PersistentProjectileEntity implements Flying
 
     @Override
     protected ItemStack getDefaultItemStack() {
-        ItemStack item = new ItemStack(BombasticItemRegistrar.PIPE_BOMB);
-        item.set(BombasticDataComponentTypeRegistrar.PINNED, false);
+        ItemStack item = new ItemStack(BombasticItems.PIPE_BOMB);
+        item.set(BombasticDataComponentTypes.PINNED, false);
         return item;
     }
     @Override

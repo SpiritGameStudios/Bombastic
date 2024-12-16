@@ -2,9 +2,9 @@ package dev.spiritstudios.bombastic.main.item;
 
 import com.mojang.datafixers.util.Pair;
 import dev.spiritstudios.bombastic.main.network.PartyPopperS2CPacket;
-import dev.spiritstudios.bombastic.main.registry.BombasticEnchantmentComponentTypeRegistrar;
-import dev.spiritstudios.bombastic.main.registry.BombasticParticleRegistrar;
-import dev.spiritstudios.bombastic.main.registry.BombasticSoundEventRegistrar;
+import dev.spiritstudios.bombastic.main.registry.BombasticEnchantmentComponentTypes;
+import dev.spiritstudios.bombastic.main.registry.BombasticParticleTypes;
+import dev.spiritstudios.bombastic.main.registry.BombasticSoundEvents;
 import dev.spiritstudios.bombastic.main.utils.ChangingExplosionBehavior;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -57,8 +57,8 @@ public class PartyPopperItem extends Item {
                         power,
                         false,
                         World.ExplosionSourceType.TRIGGER,
-                        BombasticParticleRegistrar.CONFETTI,
-                        BombasticParticleRegistrar.CONFETTI,
+                        BombasticParticleTypes.CONFETTI,
+                        BombasticParticleTypes.CONFETTI,
                         Registries.SOUND_EVENT.getEntry(SoundEvents.INTENTIONALLY_EMPTY)
                 );
 
@@ -82,7 +82,7 @@ public class PartyPopperItem extends Item {
                 playerEntity.getX(),
                 playerEntity.getY(),
                 playerEntity.getZ(),
-                BombasticSoundEventRegistrar.PARTY_POPPER,
+                BombasticSoundEvents.PARTY_POPPER,
                 playerEntity.getSoundCategory(),
                 1.0F,
                 1.0F
@@ -95,7 +95,7 @@ public class PartyPopperItem extends Item {
         EnchantmentHelper.forEachEnchantment(
                 stack,
                 (enchantment, level) -> enchantment.value().modifyValue(
-                        BombasticEnchantmentComponentTypeRegistrar.PARTY_POPPER_EXPLOSION,
+                        BombasticEnchantmentComponentTypes.PARTY_POPPER_EXPLOSION,
                         playerEntity.getRandom(),
                         level,
                         power

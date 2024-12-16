@@ -1,32 +1,22 @@
 package dev.spiritstudios.bombastic.main.registry;
 
 import com.mojang.serialization.Codec;
-import dev.spiritstudios.specter.api.registry.registration.MinecraftRegistrar;
-import dev.spiritstudios.specter.api.registry.registration.Registrar;
 import net.minecraft.component.ComponentType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.codec.PacketCodecs;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 
 import java.util.List;
 
-public class BombasticDataComponentTypeRegistrar implements MinecraftRegistrar<ComponentType<?>> {
+public class BombasticDataComponentTypes {
     public static final ComponentType<Boolean> PINNED = ComponentType.<Boolean>builder()
             .codec(Codec.BOOL)
             .packetCodec(PacketCodecs.BOOL)
+            .cache()
             .build();
 
     public static final ComponentType<List<ItemStack>> TRIGGERS = ComponentType.<List<ItemStack>>builder()
             .codec(ItemStack.CODEC.listOf())
             .packetCodec(ItemStack.LIST_PACKET_CODEC)
+            .cache()
             .build();
-
-    @Override
-    public Registry<ComponentType<?>> getRegistry() { return Registries.DATA_COMPONENT_TYPE; }
-
-    @Override
-    public Class<ComponentType<?>> getObjectType() {
-        return Registrar.fixGenerics(ComponentType.class);
-    }
 }
